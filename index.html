@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guide Complet des Fonctions VoiceOver - Interactive</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .speaking {
+            border-color: #3b82f6 !important;
+            background-color: #eff6ff !important;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-full flex flex-col font-sans">
+
+    <!-- En-tête -->
+    <header class="bg-slate-900 text-white py-8 px-4 shadow-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight">Guide Complet VoiceOver</h1>
+                <p class="text-slate-300 text-sm mt-1">36 fonctionnalités classées par niveau avec synthèse vocale interactive.</p>
+            </div>
+            <button onclick="stopSpeech()" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition">
+                ⏹ Stop Vocalisation
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8 space-y-12">
+
+        <!-- NIVEAU 1 : BASIQUES (12 Fonctionnalités) -->
+        <section>
+            <div class="flex items-center justify-between mb-6 pb-2 border-b-2 border-emerald-500">
+                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                    <span class="w-4 h-4 rounded-full bg-emerald-500 inline-block"></span>
+                    1. Fonctionnalités Basiques <span class="text-sm font-normal text-gray-500">(12/12 - Prise en main)</span>
+                </h2>
+                <button onclick="speakGroup('basiques')" class="text-sm bg-emerald-100 text-emerald-800 px-3 py-1.5 rounded-lg hover:bg-emerald-200 transition font-medium">
+                    🔊 Écouter les 12 basiques
+                </button>
+            </div>
+            
+            <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" id="group-basiques">
+                <!-- 1 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Explorer au toucher</h3><span class="text-blue-600">🔊</span></div>
+                    <p class="mt-2 text-xs text-gray-600"><strong>Usage :</strong> Découvrir les éléments sous le doigt.</p>
+                    <p class="mt-1 text-xs text-gray-600"><strong>Mise en œuvre :</strong> Glisser un doigt sur l'écran.</p>
+                </div>
+                <!-- 2 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Naviguer séquentiellement</h3><span class="text-blue-600">🔊</span></div>
+                    <p class="mt-2 text-xs text-gray-600"><strong>Usage :</strong> Passer à l'élément suivant ou précédent.</p>
+                    <p class="mt-1 text-xs text-gray-600"><strong>Mise en œuvre :</strong> Balayer à 1 doigt vers la droite ou la gauche.</p>
+                </div>
+                <!-- 3 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Activer un élément</h3><span class="text-blue-600">🔊</span></div>
+                    <p class="mt-2 text-xs text-gray-600"><strong>Usage :</strong> Valider un bouton ou ouvrir une application.</p>
+                    <p class="mt-1 text-xs text-gray-600"><strong>Mise en œuvre :</strong> Toucher l'écran deux fois rapidement (double-tap).</p>
+                </div>
+                <!-- 4 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Défiler la page</h3><span class="text-blue-600">🔊</span></div>
+                    <p class="mt-2 text-xs text-gray-600"><strong>Usage :</strong> Descendre ou monter dans un contenu long.</p>
+                    <p class="mt-1 text-xs text-gray-600"><strong>Mise en œuvre :</strong> Balayer vers le haut ou bas à 3 doigts.</p>
+                </div>
+                <!-- 5 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Activer / Désactiver VoiceOver</h3><span class="text-blue-600">🔊</span></div>
+                    <p class="mt-2 text-xs text-gray-600"><strong>Usage :</strong> Lancer ou fermer rapidement la synthèse vocale.</p>
+                    <p class="mt-1 text-xs text-gray-600"><strong>Mise en œuvre :</strong> Triple-clic sur le bouton latéral/Home ou dire "Siri, active VoiceOver".</p>
+                </div>
+                <!-- 6 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Lire le premier élément</h3><span class="text-blue-600">🔊</span></div>
+                    <p class="mt-2 text-xs text-gray-600"><strong>Usage :</strong> Se repositionner au tout début de la page ou de l'application.</p>
+                    <p class="mt-1 text-xs text-gray-600"><strong>Mise en œuvre :</strong> Toucher le haut de l'écran à 4 doigts.</p>
+                </div>
+                <!-- 7 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Lire le dernier élément</h3><span class="text-blue-600">🔊</span></div>
+                    <p class="mt-2 text-xs text-gray-600"><strong>Usage :</strong> Aller directement en bas de page.</p>
+                    <p class="mt-1 text-xs text-gray-600"><strong>Mise en œuvre :</strong> Toucher le bas de l'écran à 4 doigts.</p>
+                </div>
+                <!-- 8 -->
+                <div class="card bg-white p-5 rounded-xl border border-gray-200 shadow-sm hover:shadow-md cursor-pointer transition" onclick="speakCard(this)">
+                    <div class="flex justify-between items-start"><h3 class="font-bold text-base text-slate-900 title">Faire taire la voix instantanément</h3><span class="text-blue-60
